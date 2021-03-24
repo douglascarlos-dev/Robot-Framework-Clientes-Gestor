@@ -50,4 +50,6 @@ Quando eu entro com este estado_civil
     Select From List by Value    inputEstadoCivil    ${estado_civil}
 Entao devo ver o cliente cadastrado
     Click Element               css:button[type=submit]
-    Page Should Contain Element     class:form-row
+    Sleep   3s
+    ${element}=     Execute Javascript      return window.document.getElementById('inputNome1').value
+    Should Be Equal As Strings    ${element}    ${nome}
