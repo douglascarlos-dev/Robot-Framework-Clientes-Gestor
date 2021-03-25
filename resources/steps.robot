@@ -51,5 +51,11 @@ Quando eu entro com este estado_civil
 Entao devo ver o cliente cadastrado
     Click Element               css:button[type=submit]
     Sleep   3s
-    ${element}=     Execute Javascript      return window.document.getElementById('inputNome1').value
-    Should Be Equal As Strings    ${element}    ${nome}
+    ${elementNome}=     Execute Javascript      return window.document.getElementById('inputNome').value
+    Should Be Equal As Strings    ${elementNome}    ${nome}
+    ${elementEmail}=     Execute Javascript      return window.document.getElementById('inputEmail').value
+    Should Be Equal As Strings    ${elementEmail}    ${email}
+    ${elementCPF}=     Execute Javascript      return window.document.getElementById('inputCPF').value
+    Should Be Equal As Strings    ${elementCPF}    ${cpf}
+    ${elementDataDeNascimento}=     Execute Javascript      return window.document.getElementById('inputDataDeNascimento').value
+    Should Be Equal As Strings    ${elementDataDeNascimento}    ${data_de_nascimento}
