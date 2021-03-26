@@ -16,7 +16,7 @@ Novo usuário
     Quando eu entro com este email
     Dado que "11122233344" e o cpf
     Quando eu entro com este cpf
-    Dado que "01/01/2000" e a data_de_nascimento
+    Dado que "15/01/2000" e a data_de_nascimento
     Quando eu entro com esta data_de_nascimento
     Dado que "Feminino" e o sexo
     Quando eu entro com este sexo

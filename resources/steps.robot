@@ -1,5 +1,6 @@
 *** Settings ***
 Library     SeleniumLibrary
+Library     DateTime 
 
 
 *** Keywords ***
@@ -58,4 +59,5 @@ Entao devo ver o cliente cadastrado
     ${elementCPF}=     Execute Javascript      return window.document.getElementById('inputCPF').value
     Should Be Equal As Strings    ${elementCPF}    ${cpf}
     ${elementDataDeNascimento}=     Execute Javascript      return window.document.getElementById('inputDataDeNascimento').value
+    ${elementDataDeNascimento}=     Convert Date        ${elementDataDeNascimento}      result_format=%d/%m/%Y
     Should Be Equal As Strings    ${elementDataDeNascimento}    ${data_de_nascimento}
