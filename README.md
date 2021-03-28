@@ -18,6 +18,7 @@ Antes de instalar o projeto, você precisa já ter instalado na sua máquina:
 - Projeto [Clientes Gestor](https://github.com/douglascarlos-dev/Clientes-Gestor)
 - Python,
 - Robot Framework
+- psycopg2
 
 ### Obtendo uma cópia:
 
