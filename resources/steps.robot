@@ -13,6 +13,7 @@ Fechar navegador
 
 ### Steps Cadastro Cliente
 Dado que "${nome}" e o meu nome
+    Limpa Banco
     Click Link                  /php-pdo-oop-clean-urls-postgresql/clientes
     Set Selenium Implicit Wait  10
     Click Link                  /php-pdo-oop-clean-urls-postgresql/clientes/novo/
