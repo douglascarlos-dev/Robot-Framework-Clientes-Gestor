@@ -11,7 +11,7 @@ Abrir navegador
 Fechar navegador
     Close Browser
 
-### Steps
+### Steps Cadastro Cliente
 Dado que "${nome}" e o meu nome
     Set Global Variable     ${nome}
 
@@ -61,3 +61,31 @@ Entao devo ver o cliente cadastrado
     ${elementDataDeNascimento}=     Execute Javascript      return window.document.getElementById('inputDataDeNascimento').value
     ${elementDataDeNascimento}=     Convert Date        ${elementDataDeNascimento}      result_format=%d/%m/%Y
     Should Be Equal As Strings    ${elementDataDeNascimento}    ${data_de_nascimento}
+    ${elementSexo}=     Execute Javascript      return window.document.getElementById('selectSexo').value
+    Should Be Equal As Strings    ${elementSexo}    ${sexo}
+    ${elementEstadoCivil}=     Execute Javascript      return window.document.getElementById('selectEstadoCivil').value
+    Should Be Equal As Strings    ${elementEstadoCivil}    ${estado_civil}
+
+### Steps Cadastro Telefone
+Dado que o cliente está cadastrado
+    steps.Abrir navegador
+    Go To   http://localhost:8080/php-pdo-oop-clean-urls-postgresql/clientes/editar/11122233344
+Clico em Adicionar telefone
+    Click Element               id:novoTelefone
+Dado que a descrição é "${descricao_telefone}"
+    Set Global Variable     ${descricao_telefone}
+Quando entro com esta descrição
+    Page Should Contain Element    xpath=//*[@id="selectTipo"]    5s
+    Select From List by Value    selectTipo    ${descricao_telefone}
+Dado que o telefone é "${telefone}"
+    Set Global Variable     ${telefone}
+Quando entro com esse telefone
+    Input Text                  id:inputTelefone       ${telefone}
+Clico em Cadastrar
+    Click Element               css:button[type=submit]
+Então devo vê o telefone cadastrado
+    Sleep   3s
+    ${elementTipoTelefone}=     Execute Javascript      return window.document.getElementById('inputTipoTelefone').value
+    Should Be Equal As Strings    ${elementTipoTelefone}    ${descricao_telefone}
+    ${elementTelefone}=     Execute Javascript      return window.document.getElementById('inputTelefone').value
+    Should Be Equal As Strings    ${elementTelefone}    ${telefone}
