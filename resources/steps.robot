@@ -1,18 +1,22 @@
 *** Settings ***
 Library     SeleniumLibrary
 Library     DateTime 
-
+Library     ./libs/postgresql.py
 
 *** Keywords ***
 ### Hooks
 Abrir navegador
-    Open Browser                http://localhost:8080/php-pdo-oop-clean-urls-postgresql/clientes/novo/       chrome
+    Open Browser                http://localhost:8080/php-pdo-oop-clean-urls-postgresql/       chrome
     Set Selenium Implicit Wait  10
 Fechar navegador
     Close Browser
 
 ### Steps Cadastro Cliente
 Dado que "${nome}" e o meu nome
+    Click Link                  /php-pdo-oop-clean-urls-postgresql/clientes
+    Set Selenium Implicit Wait  10
+    Click Link                  /php-pdo-oop-clean-urls-postgresql/clientes/novo/
+    Sleep   3s
     Set Global Variable     ${nome}
 
 Quando eu entro com este nome
@@ -51,7 +55,7 @@ Quando eu entro com este estado_civil
     Select From List by Value    inputEstadoCivil    ${estado_civil}
 Entao devo ver o cliente cadastrado
     Click Element               css:button[type=submit]
-    Sleep   3s
+    Set Selenium Implicit Wait  10
     ${elementNome}=     Execute Javascript      return window.document.getElementById('inputNome').value
     Should Be Equal As Strings    ${elementNome}    ${nome}
     ${elementEmail}=     Execute Javascript      return window.document.getElementById('inputEmail').value
@@ -68,8 +72,10 @@ Entao devo ver o cliente cadastrado
 
 ### Steps Cadastro Telefone
 Dado que o cliente está cadastrado
-    steps.Abrir navegador
-    Go To   http://localhost:8080/php-pdo-oop-clean-urls-postgresql/clientes/editar/11122233344
+    Click Link                  /php-pdo-oop-clean-urls-postgresql/clientes
+    Set Selenium Implicit Wait  10
+    Click Link                  /php-pdo-oop-clean-urls-postgresql/clientes/editar/11122233344
+    Set Selenium Implicit Wait  10
 Clico em Adicionar telefone
     Click Element               id:novoTelefone
 Dado que a descrição é "${descricao_telefone}"
@@ -84,7 +90,7 @@ Quando entro com esse telefone
 Clico em Cadastrar
     Click Element               css:button[type=submit]
 Então devo vê o telefone cadastrado
-    Sleep   3s
+    Set Selenium Implicit Wait  10
     ${elementTipoTelefone}=     Execute Javascript      return window.document.getElementById('inputTipoTelefone').value
     Should Be Equal As Strings    ${elementTipoTelefone}    ${descricao_telefone}
     ${elementTelefone}=     Execute Javascript      return window.document.getElementById('inputTelefone').value
