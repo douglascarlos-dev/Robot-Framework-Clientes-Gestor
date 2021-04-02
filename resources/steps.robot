@@ -17,7 +17,7 @@ Dado que "${nome}" e o meu nome
     Click Link                  /php-pdo-oop-clean-urls-postgresql/clientes
     Set Selenium Implicit Wait  10
     Click Link                  /php-pdo-oop-clean-urls-postgresql/clientes/novo/
-    Sleep   3s
+    Sleep   1s
     Set Global Variable     ${nome}
 
 Quando eu entro com este nome
@@ -45,8 +45,8 @@ Dado que "${sexo}" e o sexo
     Set Global Variable     ${sexo}
 
 Quando eu entro com este sexo
-    Page Should Contain Element    xpath=//*[@id="inputSexo"]    5s
-    Select From List by Value    inputSexo    ${sexo}
+    Page Should Contain Element    xpath=//*[@id="selectSexo"]    5s
+    Select From List by Value    selectSexo    ${sexo}
 
 Dado que "${estado_civil}" e o estado_civil
     Set Global Variable     ${estado_civil}
@@ -54,6 +54,7 @@ Dado que "${estado_civil}" e o estado_civil
 Quando eu entro com este estado_civil
     Page Should Contain Element    xpath=//*[@id="inputEstadoCivil"]    5s
     Select From List by Value    inputEstadoCivil    ${estado_civil}
+
 Entao devo ver o cliente cadastrado
     Click Element               css:button[type=submit]
     Set Selenium Implicit Wait  10
@@ -70,6 +71,13 @@ Entao devo ver o cliente cadastrado
     Should Be Equal As Strings    ${elementSexo}    ${sexo}
     ${elementEstadoCivil}=     Execute Javascript      return window.document.getElementById('selectEstadoCivil').value
     Should Be Equal As Strings    ${elementEstadoCivil}    ${estado_civil}
+
+### Steps Cadastro Cliente Sem nome
+Entao devo ver o alerta
+    Click Element               css:button[type=submit]
+    Set Selenium Implicit Wait  10
+    ${elementAlerta}=     Execute Javascript      return window.document.getElementById('myDIV').className
+    Should Be Equal As Strings    ${elementAlerta}    alert alert-danger
 
 ### Steps Cadastro Telefone
 Dado que o cliente está cadastrado
