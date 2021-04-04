@@ -9,6 +9,15 @@ Test Setup      Abrir navegador
 Test Teardown   Fechar navegador
 
 *** Test Cases ***
+Telefone não informado
+    Dado que o cliente está cadastrado
+    Clico em Adicionar telefone
+    Dado que a descrição é "Celular"
+    Quando entro com esta descrição
+    Dado que o telefone é "${EMPTY}"
+    Quando entro com esse telefone
+    Entao devo ver o alerta
+
 Novo telefone
     Dado que o cliente está cadastrado
     Clico em Adicionar telefone

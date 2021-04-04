@@ -81,10 +81,12 @@ Entao devo ver o alerta
 
 ### Steps Cadastro Telefone
 Dado que o cliente está cadastrado
+    Limpa Telefone
     Click Link                  /php-pdo-oop-clean-urls-postgresql/clientes
     Set Selenium Implicit Wait  10
     Click Link                  /php-pdo-oop-clean-urls-postgresql/clientes/editar/11122233344
     Set Selenium Implicit Wait  10
+    Sleep   1s
 Clico em Adicionar telefone
     Click Element               id:novoTelefone
 Dado que a descrição é "${descricao_telefone}"
@@ -95,6 +97,7 @@ Quando entro com esta descrição
 Dado que o telefone é "${telefone}"
     Set Global Variable     ${telefone}
 Quando entro com esse telefone
+    Sleep   1s
     Input Text                  id:inputTelefone       ${telefone}
 Clico em Cadastrar
     Click Element               css:button[type=submit]
@@ -104,3 +107,4 @@ Então devo vê o telefone cadastrado
     Should Be Equal As Strings    ${elementTipoTelefone}    ${descricao_telefone}
     ${elementTelefone}=     Execute Javascript      return window.document.getElementById('inputTelefone').value
     Should Be Equal As Strings    ${elementTelefone}    ${telefone}
+
