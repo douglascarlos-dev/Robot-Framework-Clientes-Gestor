@@ -2,10 +2,13 @@
 
 Teste de Software usando o Robot Framework para automatizar os testes de aceitação (ATDD) no software Clientes Gestor.
 
+![Teste Cadastro Cliente](./teste_cadastro_cliente.png)
+
 ## Recursos usados no desenvolvimento:
 
 - Robot Framework
 - BDD
+- Python
 
 ## Instalação:
 
@@ -32,4 +35,5 @@ $ git clone https://github.com/douglascarlos-dev/Robot-Framework-Clientes-Gestor
 ```shell
 # Execute o projeto
 $ robot -d logs tests\cadastro-cliente.robot
+$ robot -d logs tests\cadastro-cliente-telefone.robot
 ```
