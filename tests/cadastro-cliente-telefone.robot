@@ -10,6 +10,7 @@ Test Teardown   Fechar navegador
 
 *** Test Cases ***
 Telefone não informado
+    Dado que estou logado
     Dado que o cliente está cadastrado
     Clico em Adicionar telefone
     Dado que a descrição é "Celular"
@@ -19,6 +20,7 @@ Telefone não informado
     Entao devo ver o alerta
 
 Novo telefone
+    Dado que estou logado
     Dado que o cliente está cadastrado
     Clico em Adicionar telefone
     Dado que a descrição é "Celular"

@@ -13,13 +13,13 @@ Fechar navegador
 
 ### Steps Cadastro Cliente
 Dado que estou logado
-    Limpa Banco
     Sleep   1s
     Input Text                  id:inputUsuario        admin
     Input Text                  id:inputSenha        admin
     Click Element               css:button[type=submit]
 
 Dado que "${nome}" e o meu nome
+    Limpa Banco
     Click Link                  /php-pdo-oop-clean-urls-postgresql/clientes
     Sleep   1s
     Set Selenium Implicit Wait  10
@@ -114,5 +114,4 @@ Então devo vê o telefone cadastrado
     ${elementTipoTelefone}=     Execute Javascript      return window.document.getElementById('inputTipoTelefone').value
     Should Be Equal As Strings    ${elementTipoTelefone}    ${descricao_telefone}
     ${elementTelefone}=     Execute Javascript      return window.document.getElementById('inputTelefone').value
-    Should Be Equal As Strings    ${elementTelefone}    ${telefone}
-
+    Should Be Equal As Strings    ${elementTelefone}    (11) 9 9999-9999
