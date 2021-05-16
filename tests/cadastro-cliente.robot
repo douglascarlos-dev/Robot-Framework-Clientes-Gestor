@@ -10,6 +10,7 @@ Test Teardown   Fechar navegador
 
 *** Test Cases ***
 Nome não informado
+    Dado que estou logado
     Dado que "${EMPTY}" e o meu nome
     Quando eu entro com este nome
     Dado que "contato@douglascarlos.dev" e o email
@@ -25,6 +26,7 @@ Nome não informado
     Entao devo ver o alerta
 
 Email não informado
+    Dado que estou logado
     Dado que "Fulana da Silva" e o meu nome
     Quando eu entro com este nome
     Dado que "${EMPTY}" e o email
@@ -40,6 +42,7 @@ Email não informado
     Entao devo ver o alerta
 
 CPF não informado
+    Dado que estou logado
     Dado que "Fulana da Silva" e o meu nome
     Quando eu entro com este nome
     Dado que "contato@douglascarlos.dev" e o email
@@ -55,6 +58,7 @@ CPF não informado
     Entao devo ver o alerta
 
 Data De Nascimento não informado
+    Dado que estou logado
     Dado que "Fulana da Silva" e o meu nome
     Quando eu entro com este nome
     Dado que "contato@douglascarlos.dev" e o email
@@ -70,6 +74,7 @@ Data De Nascimento não informado
     Entao devo ver o alerta
 
 Novo usuário
+    Dado que estou logado
     Dado que "Fulana da Silva" e o meu nome
     Quando eu entro com este nome
     Dado que "contato@douglascarlos.dev" e o email

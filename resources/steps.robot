@@ -6,15 +6,22 @@ Library     ./libs/postgresql.py
 *** Keywords ***
 ### Hooks
 Abrir navegador
-    Open Browser                http://localhost:8080/php-pdo-oop-clean-urls-postgresql/       chrome
+    Open Browser                http://localhost:80/php-pdo-oop-clean-urls-postgresql/       chrome
     Set Selenium Implicit Wait  10
 Fechar navegador
     Close Browser
 
 ### Steps Cadastro Cliente
-Dado que "${nome}" e o meu nome
+Dado que estou logado
     Limpa Banco
+    Sleep   1s
+    Input Text                  id:inputUsuario        admin
+    Input Text                  id:inputSenha        admin
+    Click Element               css:button[type=submit]
+
+Dado que "${nome}" e o meu nome
     Click Link                  /php-pdo-oop-clean-urls-postgresql/clientes
+    Sleep   1s
     Set Selenium Implicit Wait  10
     Click Link                  /php-pdo-oop-clean-urls-postgresql/clientes/novo/
     Sleep   1s
@@ -63,7 +70,7 @@ Entao devo ver o cliente cadastrado
     ${elementEmail}=     Execute Javascript      return window.document.getElementById('inputEmail').value
     Should Be Equal As Strings    ${elementEmail}    ${email}
     ${elementCPF}=     Execute Javascript      return window.document.getElementById('inputCPF').value
-    Should Be Equal As Strings    ${elementCPF}    ${cpf}
+    Should Be Equal As Strings    ${elementCPF}    111.222.333-44
     ${elementDataDeNascimento}=     Execute Javascript      return window.document.getElementById('inputDataDeNascimento').value
     ${elementDataDeNascimento}=     Convert Date        ${elementDataDeNascimento}      result_format=%d/%m/%Y
     Should Be Equal As Strings    ${elementDataDeNascimento}    ${data_de_nascimento}
@@ -83,6 +90,7 @@ Entao devo ver o alerta
 Dado que o cliente está cadastrado
     Limpa Telefone
     Click Link                  /php-pdo-oop-clean-urls-postgresql/clientes
+    Sleep   1s
     Set Selenium Implicit Wait  10
     Click Link                  /php-pdo-oop-clean-urls-postgresql/clientes/editar/11122233344
     Set Selenium Implicit Wait  10
