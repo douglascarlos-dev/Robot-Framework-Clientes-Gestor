@@ -34,6 +34,6 @@ $ git clone https://github.com/douglascarlos-dev/Robot-Framework-Clientes-Gestor
 
 ```shell
 # Execute o projeto
-$ robot -d logs tests\cadastro-cliente.robot
-$ robot -d logs tests\cadastro-cliente-telefone.robot
+# Teste WEB
+$ robot -d logs web\tests
 ```
