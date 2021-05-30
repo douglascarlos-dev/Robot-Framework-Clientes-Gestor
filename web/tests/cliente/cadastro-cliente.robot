@@ -3,7 +3,7 @@ Documentation   Cadastro de Usuário
 ...     Para que eu possa ter acesso a interface de administração de spots
 ...     Sendo um usuario que possui um email
 ...     Quero poder iniciar uma nova sessao
-Resource        ../resources/steps.robot
+Resource        ../../resources/steps.robot
 
 Test Setup      Abrir navegador
 Test Teardown   Fechar navegador
@@ -74,6 +74,7 @@ Data De Nascimento não informado
     Entao devo ver o alerta
 
 Novo usuário
+    [Tags]      todo
     Dado que estou logado
     Dado que "Fulana da Silva" e o meu nome
     Quando eu entro com este nome

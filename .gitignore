@@ -1,3 +1,5 @@
 ##### Arquivo de configuração do banco de dados
 /logs
 /resources/libs/__pycache__
+/web/logs/
+web/resources/libs/__pycache__/
